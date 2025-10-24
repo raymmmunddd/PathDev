@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.pathdev-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  padding: 20px;
+}
+
+.pathdev-card {
+  width: 100%;
+  max-width: 440px;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.pathdev-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.pathdev-logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #FF8C42;
+  margin-bottom: 24px;
+}
+
+.pathdev-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.pathdev-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.pathdev-mode-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+  background: #f3f4f6;
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.pathdev-mode-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.pathdev-mode-btn.active {
+  background: white;
+  color: #FF8C42;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pathdev-mode-btn:hover:not(.active) {
+  color: #FF8C42;
+}
+
+.pathdev-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pathdev-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pathdev-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.pathdev-password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.pathdev-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  color: #6b7280;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+.pathdev-password-wrapper .pathdev-input {
+  padding-right: 48px;
+}
+
+.pathdev-input:focus {
+  border-color: #FF8C42;
+}
+
+.pathdev-input.error {
+  border-color: #ef4444;
+}
+
+.pathdev-input:disabled {
+  background-color: #f9fafb;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pathdev-eye-button {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.pathdev-eye-button:hover:not(:disabled) {
+  color: #FF8C42;
+}
+
+.pathdev-eye-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pathdev-error {
+  font-size: 13px;
+  color: #ef4444;
+  margin-top: 4px;
+}
+
+.pathdev-submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: #FF8C42;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+
+.pathdev-submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 140, 66, 0.3);
+  background: #ff9d5c;
+}
+
+.pathdev-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pathdev-footer {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 8px;
+}
+
+.pathdev-footer a {
+  color: #FF8C42;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.pathdev-footer a:hover {
+  color: #ff9d5c;
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .pathdev-card {
+    padding: 30px 24px;
+  }
+
+  .pathdev-title {
+    font-size: 28px;
+  }
+
+  .pathdev-logo {
+    font-size: 24px;
+  }
+}
