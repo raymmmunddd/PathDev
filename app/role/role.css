@@ -1,0 +1,217 @@
+:root {
+  /* PathDev Colors */
+  --color-primary: #F09134;
+  --color-primary-rgb: 240, 145, 52;
+  --color-secondary: #292524;
+  --color-secondary-rgb: 41, 37, 36;
+  --color-accent: #F5F5F4;
+  --color-beige: #F4EDE4;
+  
+  /* Dark Theme Colors */
+  --color-bg-primary: #1c1917;
+  --color-bg-secondary: #292524;
+  --color-bg-card: #44403c;
+  --color-text-primary: #fafaf9;
+  --color-text-secondary: #a8a29e;
+  --color-border: #57534e;
+  
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Other */
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  --transition-base: 300ms ease;
+}
+
+/* Page Container */
+.role-page {
+  background-color: var(--color-bg-primary);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.role-page .role-container {
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Header */
+.role-page .role-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.role-page .role-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, var(--color-primary), #ea580c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.role-page .role-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+}
+
+/* Role Grid */
+.role-page .role-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.role-page .role-card {
+  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-card));
+  padding: 3rem 2rem;
+  border-radius: var(--radius-2xl);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.role-page .role-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.1), transparent);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.role-page .role-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(var(--color-primary-rgb), 0.6);
+}
+
+.role-page .role-card:hover::before {
+  opacity: 1;
+}
+
+/* Role Icon */
+.role-page .role-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  transition: all var(--transition-base);
+}
+
+.role-page .role-icon-user {
+  background: linear-gradient(135deg, var(--color-primary), #ea580c);
+  color: white;
+  box-shadow: 0 8px 20px rgba(var(--color-primary-rgb), 0.4);
+}
+
+.role-page .role-icon-admin {
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  color: white;
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+}
+
+.role-page .role-card:hover .role-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Role Card Content */
+.role-page .role-card-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.role-page .role-card-description {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .role-page .role-page {
+    padding: 1.5rem;
+  }
+
+  .role-page .role-title {
+    font-size: 2rem;
+  }
+
+  .role-page .role-subtitle {
+    font-size: 1rem;
+  }
+
+  .role-page .role-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .role-page .role-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .role-page .role-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .role-page .role-card-title {
+    font-size: 1.5rem;
+  }
+
+  .role-page .role-card-description {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .role-page .role-header {
+    margin-bottom: 2rem;
+  }
+
+  .role-page .role-title {
+    font-size: 1.75rem;
+  }
+
+  .role-page .role-card {
+    padding: 2rem 1rem;
+  }
+
+  .role-page .role-icon {
+    width: 80px;
+    height: 80px;
+  }
+}

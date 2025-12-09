@@ -1,0 +1,462 @@
+:root {
+  /* PathDev Colors */
+  --color-primary: #F09134;
+  --color-primary-rgb: 240, 145, 52;
+  --color-secondary: #292524;
+  --color-secondary-rgb: 41, 37, 36;
+  --color-accent: #F5F5F4;
+  --color-beige: #F4EDE4;
+  
+  /* Dark Theme Colors */
+  --color-bg-primary: #1c1917;
+  --color-bg-secondary: #292524;
+  --color-bg-card: #44403c;
+  --color-text-primary: #fafaf9;
+  --color-text-secondary: #a8a29e;
+  --color-border: #57534e;
+  
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Other */
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --transition-base: 300ms ease;
+}
+
+/* Global Styles */
+.dashboard-page {
+  background-color: var(--color-bg-primary);
+  min-height: 100vh;
+  padding: 2rem;
+  color: var(--color-text-primary);
+}
+
+/* Scrollbar Styles */
+.dashboard-page html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-bg-card) transparent;
+}
+
+.dashboard-page html::-webkit-scrollbar {
+  width: 10px;
+}
+.dashboard-page html::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dashboard-page html::-webkit-scrollbar-thumb {
+  background-color: var(--color-bg-card);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.dashboard-page html::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(68,64,60,0.9);
+}
+
+/* Header */
+.dashboard-page .dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-page .header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dashboard-page .dashboard-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-page .dashboard-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+}
+
+/* Stats Grid */
+.dashboard-page .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-page .stat-card {
+  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-card));
+  padding: 1.5rem;
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.dashboard-page .stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(var(--color-primary-rgb), 0.5);
+}
+
+.dashboard-page .stat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.dashboard-page .stat-card-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.dashboard-page .stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-page .stat-icon-primary {
+  background-color: rgba(var(--color-primary-rgb), 0.15);
+  color: var(--color-primary);
+}
+
+.dashboard-page .stat-icon-secondary {
+  background-color: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+}
+
+.dashboard-page .stat-icon-accent {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.dashboard-page .stat-icon-goal {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.dashboard-page .stat-card-value {
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-page .stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.dashboard-page .stat-description {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Content Grid */
+.dashboard-page .content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-page .content-card {
+  background-color: var(--color-bg-secondary);
+  padding: 1.5rem;
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.dashboard-page .content-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+/* Roadmap List */
+.dashboard-page .roadmap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-page .roadmap-item {
+  padding: 1rem;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+}
+
+.dashboard-page .roadmap-item:hover {
+  border-color: rgba(var(--color-primary-rgb), 0.5);
+  transform: translateX(4px);
+}
+
+.dashboard-page .roadmap-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.dashboard-page .roadmap-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.dashboard-page .roadmap-progress-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.dashboard-page .progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-bg-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-page .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), #ea580c);
+  border-radius: var(--radius-lg);
+  transition: width var(--transition-base);
+}
+
+.dashboard-page .roadmap-meta {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Activity List */
+.dashboard-page .activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-page .activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+}
+
+.dashboard-page .activity-item:hover {
+  border-color: rgba(var(--color-primary-rgb), 0.3);
+}
+
+.dashboard-page .activity-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dashboard-page .activity-icon-primary {
+  background-color: rgba(var(--color-primary-rgb), 0.15);
+  color: var(--color-primary);
+}
+
+.dashboard-page .activity-icon-secondary {
+  background-color: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+}
+
+.dashboard-page .activity-icon-accent {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.dashboard-page .activity-icon-goal {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.dashboard-page .activity-content {
+  flex: 1;
+}
+
+.dashboard-page .activity-title {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.25rem;
+  font-size: 0.9375rem;
+}
+
+.dashboard-page .activity-meta {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.dashboard-page .activity-time {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+}
+
+/* Quick Actions */
+.dashboard-page .action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.dashboard-page .action-card {
+  background: linear-gradient(135deg, var(--color-bg-card), var(--color-bg-secondary));
+  padding: 1.5rem 1rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.dashboard-page .action-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(var(--color-primary-rgb), 0.5);
+}
+
+.dashboard-page .action-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.dashboard-page .action-icon-1 {
+  background: linear-gradient(135deg, var(--color-primary), #ea580c);
+  color: white;
+}
+
+.dashboard-page .action-icon-2 {
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  color: white;
+}
+
+.dashboard-page .action-icon-3 {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
+}
+
+.dashboard-page .action-icon-4 {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: white;
+}
+
+.dashboard-page .action-label {
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-align: center;
+  font-size: 0.9375rem;
+}
+
+/* View All Link */
+.dashboard-page .view-all-link {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.dashboard-page .view-all-link:hover {
+  gap: 0.5rem;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .dashboard-page .dashboard-page {
+    padding: 1.5rem;
+  }
+
+  .dashboard-page .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .dashboard-page .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-page .dashboard-page {
+    padding: 1rem;
+  }
+
+  .dashboard-page .dashboard-title {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-page .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .dashboard-page .action-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-page .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-page .action-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-page .stat-number {
+    font-size: 2rem;
+  }
+
+  .dashboard-page .content-grid {
+    grid-template-columns: 1fr;
+  }
+}

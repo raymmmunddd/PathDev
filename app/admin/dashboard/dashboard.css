@@ -1,0 +1,563 @@
+:root {
+  /* PathDev Colors */
+  --color-primary: #F09134;
+  --color-primary-rgb: 240, 145, 52;
+  --color-secondary: #292524;
+  --color-secondary-rgb: 41, 37, 36;
+  --color-accent: #F5F5F4;
+  --color-beige: #F4EDE4;
+  
+  /* Dark Theme Colors */
+  --color-bg-primary: #1c1917;
+  --color-bg-secondary: #292524;
+  --color-bg-card: #44403c;
+  --color-text-primary: #fafaf9;
+  --color-text-secondary: #a8a29e;
+  --color-border: #57534e;
+  
+  /* Status Colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+  
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  
+  /* Other */
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  --transition-base: 300ms ease;
+}
+
+/* Global Styles */
+.admin-dashboard-page {
+  background-color: var(--color-bg-primary);
+  min-height: 100vh;
+  padding: 2rem;
+  color: var(--color-text-primary);
+}
+
+/* Scrollbar Styles */
+.admin-dashboard-page html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-bg-card) transparent;
+}
+
+.admin-dashboard-page html::-webkit-scrollbar {
+  width: 10px;
+}
+.admin-dashboard-page html::-webkit-scrollbar-track {
+  background: transparent;
+}
+.admin-dashboard-page html::-webkit-scrollbar-thumb {
+  background-color: var(--color-bg-card);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.admin-dashboard-page html::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(68,64,60,0.9);
+}
+
+/* Header */
+.admin-dashboard-page .admin-header {
+  margin-bottom: 2rem;
+}
+
+.admin-dashboard-page .header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-dashboard-page .admin-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.admin-dashboard-page .admin-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+}
+
+.admin-dashboard-page .admin-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.2), rgba(var(--color-primary-rgb), 0.1));
+  border: 1px solid rgba(var(--color-primary-rgb), 0.3);
+  border-radius: var(--radius-lg);
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+/* Stats Grid */
+.admin-dashboard-page .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.admin-dashboard-page .stat-card {
+  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-card));
+  padding: 1.5rem;
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+}
+
+.admin-dashboard-page .stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(var(--color-primary-rgb), 0.5);
+}
+
+.admin-dashboard-page .stat-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.admin-dashboard-page .stat-card-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+.admin-dashboard-page .stat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-dashboard-page .stat-icon-primary {
+  background-color: rgba(var(--color-primary-rgb), 0.15);
+  color: var(--color-primary);
+}
+
+.admin-dashboard-page .stat-icon-secondary {
+  background-color: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+}
+
+.admin-dashboard-page .stat-icon-accent {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.admin-dashboard-page .stat-icon-goal {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.admin-dashboard-page .stat-card-value {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.admin-dashboard-page .stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.admin-dashboard-page .stat-trend {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-md);
+}
+
+.admin-dashboard-page .stat-trend-up {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.admin-dashboard-page .stat-trend-stable {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.admin-dashboard-page .stat-description {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+/* Content Grid */
+.admin-dashboard-page .content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.admin-dashboard-page .content-card {
+  background-color: var(--color-bg-secondary);
+  padding: 1.5rem;
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.admin-dashboard-page .content-card-wide {
+  grid-column: 1 / -1;
+}
+
+.admin-dashboard-page .content-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.admin-dashboard-page .card-header-with-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+/* User Growth */
+.admin-dashboard-page .growth-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.admin-dashboard-page .growth-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+}
+
+.admin-dashboard-page .growth-item:hover {
+  border-color: rgba(var(--color-primary-rgb), 0.5);
+  transform: translateX(4px);
+}
+
+.admin-dashboard-page .growth-info {
+  flex: 1;
+}
+
+.admin-dashboard-page .growth-period {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.25rem;
+  font-size: 0.9375rem;
+}
+
+.admin-dashboard-page .growth-count {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.admin-dashboard-page .growth-badge {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #34d399;
+  background-color: rgba(16, 185, 129, 0.15);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+}
+
+/* Activity List */
+.admin-dashboard-page .activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.admin-dashboard-page .activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  transition: all var(--transition-base);
+}
+
+.admin-dashboard-page .activity-item:hover {
+  border-color: rgba(var(--color-primary-rgb), 0.3);
+}
+
+.admin-dashboard-page .activity-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.admin-dashboard-page .activity-icon-primary {
+  background-color: rgba(var(--color-primary-rgb), 0.15);
+  color: var(--color-primary);
+}
+
+.admin-dashboard-page .activity-icon-secondary {
+  background-color: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+}
+
+.admin-dashboard-page .activity-icon-accent {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.admin-dashboard-page .activity-icon-goal {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.admin-dashboard-page .activity-content {
+  flex: 1;
+}
+
+.admin-dashboard-page .activity-title {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.25rem;
+  font-size: 0.9375rem;
+}
+
+.admin-dashboard-page .activity-meta {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.admin-dashboard-page .activity-time {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+}
+
+/* Data Table */
+.admin-dashboard-page .table-container {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+}
+
+.admin-dashboard-page .data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.admin-dashboard-page .data-table thead {
+  background-color: var(--color-bg-card);
+}
+
+.admin-dashboard-page .data-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-dashboard-page .data-table tbody tr {
+  transition: background-color var(--transition-base);
+}
+
+.admin-dashboard-page .data-table tbody tr:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.05);
+}
+
+.admin-dashboard-page .data-table td {
+  padding: 1rem;
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.admin-dashboard-page .data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-dashboard-page .table-primary {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.admin-dashboard-page .completion-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-dashboard-page .mini-progress {
+  flex: 1;
+  height: 6px;
+  background-color: var(--color-bg-primary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  max-width: 120px;
+}
+
+.admin-dashboard-page .mini-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), #ea580c);
+  border-radius: var(--radius-md);
+  transition: width var(--transition-base);
+}
+
+.admin-dashboard-page .status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.admin-dashboard-page .status-active {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+/* View All Link */
+.admin-dashboard-page .view-all-link {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+
+.admin-dashboard-page .view-all-link:hover {
+  gap: 0.5rem;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .admin-dashboard-page .content-card-wide {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .admin-dashboard-page .admin-dashboard-page {
+    padding: 1.5rem;
+  }
+
+  .admin-dashboard-page .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .admin-dashboard-page .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-dashboard-page .admin-dashboard-page {
+    padding: 1rem;
+  }
+
+  .admin-dashboard-page .admin-title {
+    font-size: 1.5rem;
+  }
+
+  .admin-dashboard-page .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .admin-dashboard-page .action-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-dashboard-page .data-table {
+    font-size: 0.875rem;
+  }
+
+  .admin-dashboard-page .data-table th,
+  .admin-dashboard-page .data-table td {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-dashboard-page .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-dashboard-page .action-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-dashboard-page .stat-number {
+    font-size: 2rem;
+  }
+
+  .admin-dashboard-page .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-dashboard-page .admin-badge {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Make tables wrap and enable smooth horizontal scrolling on very small screens */
+  .admin-dashboard-page .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .admin-dashboard-page .data-table {
+    width: 100%;
+    min-width: 0; /* allow the table to shrink to container */
+  }
+
+  .admin-dashboard-page .data-table th,
+  .admin-dashboard-page .data-table td {
+    white-space: normal;
+    word-break: break-word;
+    padding: 0.5rem;
+  }
+
+  /* Limit the mini progress bar width on small screens so it doesn't force overflow */
+  .admin-dashboard-page .mini-progress {
+    max-width: 90px;
+  }
+}
