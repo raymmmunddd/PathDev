@@ -29,7 +29,7 @@ export default function SidebarHeader({
 
         .sidebar-header.collapsed {
           justify-content: center;
-          padding: 1.25rem 0.5rem;
+          padding: 1.25rem 1.25rem;
         }
 
         @media (max-width: 768px) {
