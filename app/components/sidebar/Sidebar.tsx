@@ -202,7 +202,7 @@ export default function Sidebar({ children }: SidebarProps) {
         .nav-link.active::before {
           content: '';
           position: absolute;
-          left: -3;
+          left: -10px;
           top: 15%;
           transform: translateY(-50%);
           width: 4px;
